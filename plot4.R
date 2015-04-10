@@ -1,6 +1,6 @@
-#install.packages('graphics')
-#library('graphics')
-#png("plot4.png")
+install.packages('graphics')
+library('graphics')
+png("plot4.png")
 data <- read.table("household_power_consumption.txt", header = TRUE, sep = ";")
 data[,1] <- as.Date(data[,1], format = "%d/%m/%Y")
 logical <- (data[,1] == "2007-02-01" | data[,1] == "2007-02-02")
@@ -42,4 +42,4 @@ legend("topright", legend = c("Sub_metering_1",
 grp <- data$Global_reactive_power
 grp <- as.numeric(levels(grp))[grp]
 plot(datetimes, grp, ylab = "Global_recative_power", type = 'l')
-#dev.off()
+dev.off()
