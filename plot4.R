@@ -10,19 +10,19 @@ datetimes <- paste(datetimes[,1], datetimes[,2])
 datetimes <- strptime(datetimes, format = "%Y-%m-%d %T")
 
 par( mfrow = c(2,2))
-par( mar = c(2,4,2,2))
+par( mar = c(4,4,4,3))
 
 gap <- data$Global_active_power
 gap <- as.numeric(levels(gap))[gap]
 plot(datetimes, gap, type = "l", 
-     ylab = "Global Active Power (kilowatts)",
+     ylab = "Global Active Power",
      xlab = "")
 
 voltage <- data$Voltage
 voltage <- as.numeric(levels(voltage))[voltage]
 plot(datetimes, voltage, type = "l", 
      ylab = "Voltage",
-     xlab = "")
+     xlab = "datetime")
 
 
 sm1 <- data$Sub_metering_1
@@ -41,5 +41,6 @@ legend("topright", legend = c("Sub_metering_1",
 
 grp <- data$Global_reactive_power
 grp <- as.numeric(levels(grp))[grp]
-plot(datetimes, grp, ylab = "Global_recative_power", type = 'l')
+plot(datetimes, grp, ylab = "Global_recative_power",
+     xlab = "datetime", type = 'l')
 dev.off()
